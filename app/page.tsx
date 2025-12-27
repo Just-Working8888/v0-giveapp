@@ -1,8 +1,9 @@
-import Link from "next/link"
-import { Heart, Search } from "lucide-react"
 import { OrganizationCard } from "@/components/organization-card"
 import { BottomNav } from "@/components/bottom-nav"
 import { CategoryFilter } from "@/components/category-filter"
+import { NewsStories } from "@/components/news-stories"
+import { DonationStats } from "@/components/donation-stats"
+import { HadithCarousel } from "@/components/hadith-carousel"
 
 // Mock data
 const organizations = [
@@ -55,37 +56,14 @@ const organizations = [
 export default function HomePage() {
   return (
     <div className="min-h-screen bg-background pb-20">
-      {/* Compact Header - no sticky positioning */}
-      <header className="bg-background">
-        <div className="px-4 pt-6 pb-4">
-          <div className="flex items-center justify-between mb-4">
-            <h1 className="text-xl font-bold text-balance">Благотворительность</h1>
-            <Link href="/profile" className="w-9 h-9 rounded-full bg-primary/10 flex items-center justify-center">
-              <Heart className="w-4 h-4 text-primary" />
-            </Link>
-          </div>
+      {/* News Stories */}
+      <NewsStories />
 
-          {/* Search */}
-          <div className="relative">
-            <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground" />
-            <input
-              type="search"
-              placeholder="Найти организацию..."
-              className="w-full pl-9 pr-4 py-2.5 bg-card rounded-xl text-sm focus:outline-none focus:ring-2 focus:ring-primary shadow-sm"
-            />
-          </div>
-        </div>
-      </header>
+      {/* Donation Statistics */}
+      <DonationStats />
 
-      {/* Motivational Banner */}
-      <section className="px-4 pb-4">
-        <div className="bg-gradient-to-br from-primary to-primary/80 rounded-2xl p-5 shadow-sm">
-          <h2 className="text-lg font-bold text-white mb-1 text-balance">Сделайте доброе дело сегодня</h2>
-          <p className="text-sm text-white/90 text-pretty">
-            Даже небольшая помощь может изменить чью-то жизнь к лучшему
-          </p>
-        </div>
-      </section>
+      {/* Hadith Carousel */}
+      <HadithCarousel />
 
       {/* Categories */}
       <section className="px-4 pb-4">
@@ -99,7 +77,7 @@ export default function HomePage() {
           <button className="text-sm text-primary font-medium">Все</button>
         </div>
 
-        <div className="space-y-3">
+        <div className="space-y-4">
           {organizations.map((org) => (
             <OrganizationCard key={org.id} organization={org} />
           ))}

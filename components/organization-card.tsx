@@ -24,7 +24,7 @@ export function OrganizationCard({ organization }: OrganizationCardProps) {
 
   return (
     <Link href={`/organization/${organization.id}`}>
-      <div className="bg-card rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all active:scale-[0.98]">
+      <div className="bg-card mt-3 rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all active:scale-[0.98]">
         <div className="relative h-36">
           <Image src={organization.image || "/placeholder.svg"} alt={organization.name} fill className="object-cover" />
           <div className="absolute top-2 left-2">
